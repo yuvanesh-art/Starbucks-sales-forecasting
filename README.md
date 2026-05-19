@@ -1,6 +1,14 @@
-# Starbucks-sales-forecasting
+# Codec_Technologies
+
 Built a Starbucks Sales Forecasting project using ARIMA, Prophet, and LSTM models to predict future retail sales trends. The project analyzes seasonality, promotions, and trends using time-series forecasting techniques with Python and machine learning.
-# Starbucks Sales Forecasting using Time Series Models
+
+# PROJECT NAME 
+
+Starbucks Sales Forecasting using Time Series Models
+
+# Image
+
+<img width="300" height="168" alt="image" src="https://github.com/user-attachments/assets/ec8867b0-92ac-4462-a51d-02d04ea5c0a8" />
 
 ## Overview
 
@@ -37,15 +45,13 @@ The dataset contains:
 * Holidays
 * Seasonal indicators
 
+# Dataset Link From Kaggle
+
+https://www.kaggle.com/code/cloud715/starbucks-costumer-survey-data-analysis
+
 ## Libraries and Packages used for the project
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Statsmodels
-* Prophet
-* TensorFlow/Keras
+Python, Pandas, NumPy, Matplotlib, Statsmodels, Prophet, TensorFlow/Keras
 
 ## Forecasting Workflow
 
@@ -61,10 +67,7 @@ The dataset contains:
 
 The project predicts future Starbucks sales trends while considering:
 
-* Seasonal demand
-* Holiday effects
-* Promotional campaigns
-* Long-term growth trends
+Seasonal demand, Holiday effects, Promotional campaigns, Long-term growth trends
 
 ## Results
 
