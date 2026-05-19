@@ -1,0 +1,91 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from statsmodels.tsa.arima.model import ARIMA
+from sklearn.metrics import mean_squared_error
+
+# -----------------------------
+# Starbucks Sales Forecasting
+# Time Series Analysis Project
+# -----------------------------
+
+# Sample Monthly Sales Dataset
+sales_data = {
+    'Month': pd.date_range(start='2023-01-01', periods=24, freq='M'),
+    'Sales': [820, 860, 910, 970, 1020, 1080,
+              1120, 1160, 1210, 1260, 1340, 1450,
+              1500, 1540, 1600, 1660, 1710, 1770,
+              1820, 1880, 1930, 1990, 2050, 2120]
+}
+
+# Create DataFrame
+sales_df = pd.DataFrame(sales_data)
+sales_df.set_index('Month', inplace=True)
+
+print("\nStarbucks Monthly Sales Dataset\n")
+print(sales_df)
+
+# -----------------------------
+# Train-Test Split
+# -----------------------------
+train = sales_df[:20]
+test = sales_df[20:]
+
+# -----------------------------
+# ARIMA Model
+# -----------------------------
+model = ARIMA(train['Sales'], order=(2, 1, 2))
+model_fit = model.fit()
+
+# Forecast Future Sales
+forecast = model_fit.forecast(steps=len(test))
+
+# -----------------------------
+# Evaluation
+# -----------------------------
+rmse = np.sqrt(mean_squared_error(test['Sales'], forecast))
+
+print("\nForecasted Sales:\n")
+print(forecast)
+
+print(f"\nRMSE: {rmse:.2f}")
+
+# -----------------------------
+# Plot Actual vs Forecast
+# -----------------------------
+plt.figure(figsize=(12, 6))
+plt.plot(train.index, train['Sales'], label='Training Data')
+plt.plot(test.index, test['Sales'], label='Actual Sales')
+plt.plot(test.index, forecast, label='Forecasted Sales')
+
+plt.title('Starbucks Sales Forecasting using ARIMA')
+plt.xlabel('Month')
+plt.ylabel('Sales Revenue')
+plt.legend()
+plt.grid(True)
+
+# White Background
+plt.gcf().set_facecolor('white')
+plt.savefig('starbucks_sales_forecast.png', dpi=300, bbox_inches='tight')
+
+plt.show()
+
+# -----------------------------
+# Future Prediction
+# -----------------------------
+future_forecast = model_fit.forecast(steps=6)
+
+future_months = pd.date_range(start=sales_df.index[-1], periods=6, freq='M')
+
+future_df = pd.DataFrame({
+    'Future_Months': future_months,
+    'Predicted_Sales': future_forecast
+})
+
+print("\nFuture 6-Month Sales Prediction\n")
+print(future_df)
+
+# Save Forecast Data
+future_df.to_csv('future_sales_prediction.csv', index=False)
+
+print("\nProject execution completed successfully.")
