@@ -1,3 +1,9 @@
+# Starbucks Sales Forecasting using Time Series Models
+
+<a href="https://colab.research.google.com/github/yuvanesh-art/Starbucks-sales-forecasting/blob/main/Starbucks_Sales_Forecasting.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 # Codec_Technologies
 
 Built a Starbucks Sales Forecasting project using ARIMA, Prophet, and LSTM models to predict future retail sales trends. The project analyzes seasonality, promotions, and trends using time-series forecasting techniques with Python and machine learning.
